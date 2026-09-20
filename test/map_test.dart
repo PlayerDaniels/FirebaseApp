@@ -6,15 +6,12 @@ Map<String, List<double>> alunos = {
  'Carla': [10.0, 9.0],
 };
 
-
-
 void main() {
  test('Adicionar elemento', () {
    alunos.putIfAbsent('Elena', () => [9.0, 8.0]);
    expect(alunos.containsKey('Elena'), isTrue);
    expect(alunos['Elena'], [9.0, 8.0]);
  });
- 
  test('Adicionar outro dicionário', () {
    alunos.addAll({
      'Elena': [9.0, 8.0],
@@ -23,20 +20,17 @@ void main() {
    expect(alunos.containsKey('Elena'), isTrue);
    expect(alunos.containsKey('Luiza'), isTrue);
  });
-
  test('Remover elemento', () {
    alunos.remove('Bruna');
    expect(alunos.containsKey('Bruna'), isFalse);
  });
-
  test('Atualizar elemento', () {
    alunos.update('Carla', (value) => [9.0, 8.0]);
    expect(alunos['Carla'], [9.0, 8.0]);
    alunos['Carla'] = [8.0, 9.0];
    expect(alunos['Carla'], [8.0, 9.0]);
  });
-
-  test('Testar percorrer dicionário', () {
+ test('Testar percorrer dicionário', () {
    expect(alunos.keys, ['Maria', 'Carla', 'Elena', 'Luiza']);
    expect(alunos.values, [
      [8.0, 9.0],
@@ -52,13 +46,5 @@ void main() {
    });
    expect(soma, 68.0);
  });
-}
-
-void main() {
-
- test('Calcular médias', () {
-   Map<String, double> medias = {};
-   //
-   expect(medias, {'Maria': 8.5, 'Carla': 8.5, 'Elena': 8.5, 'Luiza': 8.5});
- });
+  
 }
